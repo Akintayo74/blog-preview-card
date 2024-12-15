@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100%;
 }
 
 .main-image{
@@ -27,6 +28,10 @@
     width: min-content;
     border: 1px solid black;
     box-shadow: 5px 10px 1px 2px black;
+
+    transition-property: box-shadow, transform;
+    transition-duration: 350ms;
+    transition-timing-function: ease;
 }
 
 .card-component > *+*{
@@ -38,6 +43,12 @@
     padding: 6px;
     background-color: hsl(47, 88%, 63%);
     border-radius: 2px;
+}
+
+.card-component>h2{
+    transition-property: color, transform;
+    transition-duration: 350ms;
+    transition-timing-function: ease;
 }
 
 .main-text{
@@ -56,4 +67,48 @@ p:last-of-type{
     width: 40px;
     height: auto;
     margin-right: 10px;
+}
+
+.card-component:hover h2{
+    color: hsl(47, 88%, 63%);
+}
+
+.card-component:hover{
+    box-shadow: 13px 18px 1px 2px black;
+    cursor: pointer;
+    transform: translateX(-8px);
+}
+
+
+@media (max-width: 600px) {
+    .container{
+        padding: 0 15px;
+    }
+
+    .card-component{
+        width: min(90%, 350px);
+        margin-left: auto;
+        margin-right: auto;
+
+        transition: none;
+        box-shadow: 5px 10px 1px 2px black;
+    }
+
+    .main-image{
+        width: 100%;
+    }
+
+    .card-component:hover{
+        box-shadow: 5px 10px 1px 2px black;;
+        cursor: default;
+        transform: none;
+    }
+
+    .card-component:hover h2{
+        color: initial;
+    }
+
+    .card-component>h2{
+        transition: none;
+    }
 }
